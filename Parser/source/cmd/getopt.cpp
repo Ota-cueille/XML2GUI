@@ -1,8 +1,6 @@
-#include <iostream>
-
 int optind = 1;
 
-int my_getopt(int ac, char *const av[], const std::string optstring)
+int my_getopt(int ac, char *const av[], const char *optstring)
 {
     if (optind >= ac)
         return -1;
@@ -10,7 +8,7 @@ int my_getopt(int ac, char *const av[], const std::string optstring)
         return 0;
 
     int c = av[optind][1];
-    for (int i : optstring) {
+    for (int i = 0; optstring[i]; i++) {
         if (c == i && i != ':') {
             optind++;
             return c;
