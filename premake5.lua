@@ -27,7 +27,7 @@ buildFolder = "build/%{prj.name}/%{cfg.buildcfg}/" -- also relative to this file
 -- list of the dependencies
 group("dependencies")
     -- glfw
-    -- glad ?
+    -- glad
     -- glm
     -- stb_image
     -- boost ?
