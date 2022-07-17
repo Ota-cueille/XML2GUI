@@ -1,0 +1,9 @@
+[submodule "glad"]
+	path = glad
+	url = https://github.com/Ota-cueille/glad.git
+[submodule "glm"]
+	path = glm
+	url = https://github.com/Ota-cueille/glm.git
+[submodule "glfw"]
+	path = glfw
+	url = https://github.com/Ota-cueille/glfw.git
