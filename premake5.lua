@@ -1,16 +1,11 @@
 workspace("xml2gui")
 
-    -- architexture is x86_64
-
     configurations({
         "release",
         "debug"
     })
 
-    system({
-        "windows",
-        "linux"
-    })
+    system("windows")
 
     filter("configurations:release")
 	    defines({ "RELEASE" })
@@ -18,7 +13,6 @@ workspace("xml2gui")
     filter("configurations:debug")
 	    defines({ "DEBUG" })
 	    symbols("On")
-    filter {}
 
 paths = {}
 dependencyFolder = "../../../Libraries/cpp/" -- must be relative to this file
@@ -27,14 +21,15 @@ buildFolder = "build/%{prj.name}/%{cfg.buildcfg}/" -- also relative to this file
 -- list of the dependencies
 group("dependencies")
     -- glfw
+    include("glfw/dep.lua")
     -- glad
-    -- glm
+    include("glad/dep.lua")
     -- stb_image
     -- boost ?
-group {}
+group("")
 
 -- the xml2gui command tool
-project("./Parser/prj.lua")
+include("Parser/prj.lua")
 
 -- the xml2gui library
-project("./GuiRenderer/prj.lua")
+include("GuiRenderer/prj.lua")
